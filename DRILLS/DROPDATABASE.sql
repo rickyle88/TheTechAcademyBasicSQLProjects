@@ -1,0 +1,9 @@
+USE master;
+GO
+ALTER DATABASE [library_system] 
+    SET OFFLINE WITH ROLLBACK IMMEDIATE;
+GO
+ALTER DATABASE [library_system] SET ONLINE;
+GO
+DROP DATABASE [library_system];
+GO
