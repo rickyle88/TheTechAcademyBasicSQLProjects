@@ -92,22 +92,12 @@ CREATE PROCEDURE [dbo].[drill6]
 AS
 BEGIN
 	
-	--WHERE 
 
-	SELECT b.Name
-	FROM BORROWER b
-	INNER JOIN (
 		SELECT BL.CardNo, COUNT(BL.BookID)
 		FROM BOOK_LOANS BL
 		GROUP BY BL.CardNo
 		HAVING COUNT(BL.BookID) >= 5
-	) AS tblBookLoans
-	ON tblBookLoans.CardNo = b.CardNo
 	
-	SELECT BL.CardNo, COUNT(BL.BookID) AS 'TOTAL_BOOKS_BORROWED'
-	FROM BOOK_LOANS BL
-	GROUP BY BL.CardNo
-	 
 END
 
 --7.) For each book authored (or co-authored) by "Stephen King", 
